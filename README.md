@@ -1,2 +1,2 @@
-# compress_dataset
-Compress collection of images into single file as HDF5 or TFRecord
+# Save Images
+Saving large number of images into single HDF5 file or TFRecord.
