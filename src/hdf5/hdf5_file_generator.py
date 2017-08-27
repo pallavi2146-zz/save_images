@@ -82,17 +82,19 @@ def _get_data_points(addresses, target_size):
     return data_points
 
 
-def generator(data_path, output_file_name, target_size=(225, 225)):
+def generator(data_path, output_file_location, output_file_name, target_size=(225, 225)):
     """
 
     :param data_path:
+    :param output_file_location:
     :param output_file_name:
     :param target_size:
     :return:
     """
 
+
     image_shape = target_size + (3,)
-    hdf5_file = h5py.File(output_file_name + ".h5", 'w')
+    hdf5_file = h5py.File(output_file_location+"/"+output_file_name + ".h5", 'w')
     addresses, classes, nb_samples = directory_iterator(data_path)
 
     X = np.zeros((nb_samples,) + image_shape)
@@ -108,8 +110,7 @@ def generator(data_path, output_file_name, target_size=(225, 225)):
     hdf5_file["Y"] = Y
     hdf5_file["classes"] = classes
 
-
     hdf5_file.close()
 
 if __name__=="__main__":
-    generator("/home/pallavi/Documents/personal/learning/ml/kaggle/cnn_experiment/data/train", "catvsdog_train")
+    generator("/home/pallavi/Documents/personal/learning/ml/kaggle/cnn_experiment/data/train", "/home/pallavi/Documents/personal/learning/ml/kaggle/cnn_experiment", "catvsdog_train")
