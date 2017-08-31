@@ -36,7 +36,6 @@ $ python generate_hdf5_file.py --help
 ## Roadmap
 * Wants to build compressed format hdf5 file.
 * TFRecord generator
-* Wants to do if any other data storage file types.
 
 
 
